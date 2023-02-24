@@ -1,4 +1,4 @@
-const calculateBmi = (centimeter: number, kilograms: number): string => {
+export const calculateBmi = (centimeter: number, kilograms: number): string => {
   if (centimeter <= 0) {
     throw Error("centimeter must be a positive integer");
   }
@@ -20,4 +20,3 @@ const calculateBmi = (centimeter: number, kilograms: number): string => {
   return "Underweight";
 };
 
-console.log(calculateBmi(180, 74));

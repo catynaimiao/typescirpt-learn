@@ -1,4 +1,4 @@
-interface exercisesResult {
+export interface exercisesResult {
   periodLength: number;
   trainingDays: number;
   success: boolean;
@@ -8,7 +8,7 @@ interface exercisesResult {
   average: number;
 }
 
-const exerciseCalculator = (
+export const calculateExercises = (
   dailyExercises: number[],
   target: number
 ): exercisesResult => {
@@ -25,11 +25,12 @@ const exerciseCalculator = (
     rating = 2;
   }
 
-  const ratingDescription = {
-    1: "Needs improvement",
-    2: "Doing good",
-    3: "Excellent",
-  }[rating];
+  const ratingDescription =
+    {
+      1: "Needs improvement",
+      2: "Doing good",
+      3: "Excellent",
+    }[rating] || "";
 
   const results = {
     periodLength,
@@ -43,7 +44,3 @@ const exerciseCalculator = (
 
   return results;
 };
-
-const hours = [3, 0, 2, 4.5, 0, 3, 1];
-
-console.log(exerciseCalculator(hours, 2));
